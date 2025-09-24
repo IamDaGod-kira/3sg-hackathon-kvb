@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import bareIcon from './assets/bare-icon.png';
 import kvLogo from './assets/kv-logo.png';
 import vidyasetuLogo from './assets/vidyasetu-logo.png';
@@ -6,28 +6,51 @@ import vidyasetuLogo from './assets/vidyasetu-logo.png';
 function App() {
   return (
     <div className="p-3 min-h-full min-w-fit flex flex-col justify-center items-center bg-purple-800 text-slate-800">
-       <div className="flex items-start gap-8 mb-6">
-        <img src={kvLogo} alt="PM Shri K.V. Ballygunge" className="h-30 w-auto" />
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-center gap-6 sm:gap-8 mb-6 w-full sm:w-auto">
+        <img
+          src={kvLogo}
+          alt="PM Shri K.V. Ballygunge"
+          className="h-20 sm:h-28 w-auto mx-auto sm:mx-0"
+        />
         <div className="flex flex-col items-center">
-          <img src={bareIcon} alt="Bare Icon" className="h-30 w-auto mb-2" />
-          <h2 className="text-3xl text-slate-200 font-bold text-center">
+          <img src={bareIcon} alt="Bare Icon" className="h-20 sm:h-28 w-auto mb-2" />
+          <h2 className="text-2xl sm:text-3xl text-slate-200 font-bold text-center">
             Smart Study Schedule Generator
           </h2>
         </div>
-        <img src={vidyasetuLogo} alt="AI Vidyasetu" className="h-30 w-auto" />
+        <img
+          src={vidyasetuLogo}
+          alt="AI Vidyasetu"
+          className="h-20 sm:h-28 w-auto mx-auto sm:mx-0"
+        />
       </div>
-      <p className='text-lg text-slate-100 italic mb-8 text-center'>
-        A <a className='italic border-b-2 border-fuchsia-400' href='https://www.vidyasetu.ai/'>Hackathon</a> project by <a className='italic border-b-2 border-fuchsia-400' href="https://github.com/IamDaGod-kira/">CodeCrafters</a>
+      <p className="text-base sm:text-lg text-slate-100 italic mb-8 text-center">
+        A{' '}
+        <a className="italic border-b-2 border-fuchsia-400" href="https://www.vidyasetu.ai/">
+          Hackathon
+        </a>{' '}
+        project by{' '}
+        <a
+          className="italic border-b-2 border-fuchsia-400"
+          href="https://github.com/IamDaGod-kira/"
+        >
+          CodeCrafters
+        </a>
       </p>
-      <div className="flex justify-center items-start gap-8 w-full max-w-[100%]">
-        <div className="bg-slate-200 p-8 rounded shadow text-center flex-1 max-w-full">
-          <h2 className='text-2xl text-blue-800 text-left text-shadow-stone-900'>What is this and Why should one use this?</h2>
+      <div className="flex flex-col lg:flex-row justify-center items-start gap-6 lg:gap-8 w-full max-w-[100%]">
+        <div className="bg-slate-200 p-4 sm:p-8 rounded shadow text-center flex-1 max-w-full">
+          <h2 className="text-xl sm:text-2xl text-blue-800 text-left">
+            What is this and Why should one use this?
+          </h2>
           <br />
-          <p className='text-left text-'>Students often feel overwhelmed and confused when trying to plan study time around classes, homework, and personal activities. They lack a simple way to see their free hours and organize them efficiently.</p>
+          <p className="text-left">
+            Students often feel overwhelmed and confused when trying to plan study time around
+            classes, homework, and personal activities. They lack a simple way to see their free
+            hours and organize them efficiently.
+          </p>
         </div>
-
-        <div className="bg-slate-200 p-8 rounded shadow text-center flex-1 max-w-md">
-          <h2 className="text-1.5xl border-4 border-double border-indigo-800 rounded-lg p-2 mb-4">
+        <div className="bg-slate-200 p-4 sm:p-8 rounded shadow text-center flex-1 max-w-md">
+          <h2 className="text-lg sm:text-1.5xl border-4 border-double border-indigo-800 rounded-lg p-2 mb-4">
             Login to the App
           </h2>
           <input
@@ -43,24 +66,25 @@ function App() {
             name="passwd"
             placeholder="Enter your Password"
           />
-          <br /><br />
+          <br />
+          <br />
           <button
             type="submit"
             className="text-slate-900 border-3px-indigo-800 hover:border-emerald-600"
-            style={{ backgroundColor: "#FFFDD0" }}
+            style={{ backgroundColor: '#FFFDD0' }}
           >
             Login ≫
           </button>
-          <br /><br />
+          <br />
+          <br />
           <hr />
           <br />
-          <a className='text-blue-600 border-double border-b-2 border-fuchsia-700' href="">
+          <a className="text-blue-600 border-double border-b-2 border-fuchsia-700" href="">
             Create <i>New Account</i>
           </a>
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-export default App
+export default App;
