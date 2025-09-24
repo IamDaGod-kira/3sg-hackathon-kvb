@@ -5,16 +5,25 @@ import vidyasetuLogo from './assets/vidyasetu-logo.png';
 
 function App() {
   return (
-    <div className="p-3 min-h-screen min-w-full flex flex-col justify-center items-center bg-purple-800 text-slate-800">
-      <h2 className="text-3xl text-slate-200 font-bold mb-4">
-        Smart Study Schedule Generator
-      </h2>
+    <div className="p-3 min-h-full min-w-fit flex flex-col justify-center items-center bg-purple-800 text-slate-800">
+       <div className="flex items-start gap-8 mb-6">
+        <img src={kvLogo} alt="PM Shri K.V. Ballygunge" className="h-30 w-auto" />
+        <div className="flex flex-col items-center">
+          <img src={bareIcon} alt="Bare Icon" className="h-30 w-auto mb-2" />
+          <h2 className="text-3xl text-slate-200 font-bold text-center">
+            Smart Study Schedule Generator
+          </h2>
+        </div>
+        <img src={vidyasetuLogo} alt="AI Vidyasetu" className="h-30 w-auto" />
+      </div>
       <p className='text-lg text-slate-100 italic mb-8 text-center'>
         A <a className='italic border-b-2 border-fuchsia-400' href='https://www.vidyasetu.ai/'>Hackathon</a> project by <a className='italic border-b-2 border-fuchsia-400' href="https://github.com/IamDaGod-kira/">CodeCrafters</a>
       </p>
       <div className="flex justify-center items-start gap-8 w-full max-w-[100%]">
         <div className="bg-slate-200 p-8 rounded shadow text-center flex-1 max-w-full">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est officia, ipsa illum ad assumenda inventore dolorum modi maxime excepturi? Non aperiam sit laudantium quidem corporis temporibus officia, placeat molestias voluptate?</p>
+          <h2 className='text-2xl text-blue-800 text-left text-shadow-stone-900'>What is this and Why should one use this?</h2>
+          <br />
+          <p className='text-left text-'>Students often feel overwhelmed and confused when trying to plan study time around classes, homework, and personal activities. They lack a simple way to see their free hours and organize them efficiently.</p>
         </div>
 
         <div className="bg-slate-200 p-8 rounded shadow text-center flex-1 max-w-md">
