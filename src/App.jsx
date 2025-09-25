@@ -1,80 +1,107 @@
-import './App.css';
-import bareIcon from './assets/bare-icon.png';
-import kvLogo from './assets/kv-logo.png';
-import vidyasetuLogo from './assets/vidyasetu-logo.png';
+import "./App.css";
+import bareIcon from "./assets/bare-icon.png";
+import kvLogo from "./assets/kv-logo.png";
+import vidyasetuLogo from "./assets/vidyasetu-logo.png";
 
 function App() {
   return (
-    <div className="p-2 sm:p-3 min-h-screen w-full flex flex-col justify-start items-center bg-theme8 text-theme1-500">
-      <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-2 sm:gap-6 mb-3 w-full">
-        <img src={kvLogo} alt="PM Shri K.V. Ballygunge" className="h-10 sm:h-16 md:h-20 w-auto" />
-        <div className="flex flex-col items-center mx-1">
-          <img src={bareIcon} alt="Bare Icon" className="h-12 sm:h-20 md:h-28 w-auto" />
-          <h2 className="text-lg sm:text-2xl md:text-3xl text-theme1 font-bold text-center mt-1">
-            Smart Study Schedule Generator
-          </h2>
+    <div className="min-h-screen w-full flex flex-col items-center bg-theme1-400 text-theme5-900">
+      {/* Header Section */}
+      <header className="w-full max-w-[1100px] flex flex-col items-center py-6 px-4">
+        {/* Logos Row */}
+        <div className="flex flex-row justify-center items-center gap-4 sm:gap-8 mb-3">
+          <img
+            src={kvLogo}
+            alt="PM Shri K.V. Ballygunge"
+            className="h-10 sm:h-14 md:h-20 w-auto drop-shadow-md"
+          />
+          <img
+            src={bareIcon}
+            alt="Bare Icon"
+            className="h-12 sm:h-20 md:h-28 w-auto drop-shadow-lg"
+          />
+          <img
+            src={vidyasetuLogo}
+            alt="AI Vidyasetu"
+            className="h-10 sm:h-14 md:h-20 w-auto drop-shadow-md"
+          />
         </div>
-        <img src={vidyasetuLogo} alt="AI Vidyasetu" className="h-10 sm:h-16 md:h-20 w-auto" />
-      </div>
 
-      <p className="text-xs sm:text-sm md:text-base lg:text-lg text-theme3-400 italic mb-4 text-center">
-        A{' '}
-        <a className="italic border-b-2 border-theme6-600 hover:border-theme5-300" href="https://www.vidyasetu.ai/">
-          Hackathon
-        </a>{' '}
-        project by{' '}
+        {/* Title */}
+        <h1 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-wide text-center drop-shadow-lg">
+          Smart Study Schedule Generator
+        </h1>
+      </header>
+
+      {/* Subheading */}
+      <p className="text-xs sm:text-sm md:text-base text-theme3-400 italic mb-6 text-center">
+        A{" "}
         <a
-          className="italic border-b-2 border-theme6-600 hover:border-theme5-300"
+          className="italic border-b-2 border-fuchsia-400 hover:border-fuchsia-300 transition-colors"
+          href="https://www.vidyasetu.ai/"
+        >
+          Hackathon
+        </a>{" "}
+        project by{" "}
+        <a
+          className="italic border-b-2 border-fuchsia-400 hover:border-fuchsia-300 transition-colors"
           href="https://github.com/IamDaGod-kira/"
         >
           CodeCrafters
         </a>
       </p>
 
-      <div className="flex flex-col md:flex-row justify-center items-stretch gap-3 md:gap-6 w-full max-w-[1100px] px-1">
-        {/* login div first */}
-        <div className="bg-theme9-300 p-2 sm:p-4 md:p-6 rounded-lg shadow-lg flex-1 max-w-md self-center md:self-stretch order-1 md:order-none">
-          <h2 className="text-sm sm:text-base md:text-lg border-2 md:border-4 border-double border-theme7-600 rounded-lg p-1 md:p-2 mb-2 md:mb-4 text-theme1">
+      {/* Main Content */}
+      <main className="flex flex-col md:flex-row justify-center items-stretch gap-6 w-full max-w-[1100px] px-4 mb-10">
+        {/* Login Card */}
+        <div className="bg-theme2-400 p-6 rounded-2xl shadow-xl flex-1 max-w-md self-center md:self-stretch">
+          <h2 className="text-lg sm:text-xl font-semibold border-b-2 border-indigo-500 pb-2 mb-4 text-white">
             Login to the App
           </h2>
-          <input
-            className="w-full mb-2 px-2 py-1 md:px-4 md:py-2 rounded bg-theme8-400 text-theme1-900 placeholder-theme5-400 focus:outline-none focus:ring-1 md:focus:ring-2 focus:ring-theme5-400 caret-theme5-500"
-            type="email"
-            placeholder="Enter your Email"
-          />
-          <input
-            className="w-full mb-2 px-2 py-1 md:px-4 md:py-2 rounded bg-theme8-400 text-theme1-900 placeholder-theme5-400 focus:outline-none focus:ring-1 md:focus:ring-2 focus:ring-theme5-400 caret-theme5-500"
-            type="password"
-            placeholder="Enter your Password"
-          />
-          <button
-            type="submit"
-            className="hover:text-emerald-500 mt-2 px-2 py-1 md:px-4 md:py-2 rounded text-theme9-100 bg-theme6-500 hover:bg-theme6-400"
-          >
-            Login ≫
-          </button>
-          <hr className="my-2 md:my-4 border-theme7-600" />
-          <a
-            className="text-blue-700 border-double border-b border-theme6-600 text-xs sm:text-sm md:text-base hover:text-theme1"
-            href=""
-          >
-            Create <i>New Account</i>
-          </a>
+          <form className="flex flex-col gap-3">
+            <input
+              className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 caret-indigo-400"
+              type="email"
+              placeholder="Enter your Email"
+            />
+            <input
+              className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 caret-indigo-400"
+              type="password"
+              placeholder="Enter your Password"
+            />
+            <button
+              type="submit"
+              className="mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors"
+            >
+              Login ≫
+            </button>
+          </form>
+          <div className="mt-4 text-center">
+            <a
+              className="text-sm text-cyan-300 hover:text-cyan-200 border-b border-cyan-400 transition-colors"
+              href="#"
+            >
+              Create <i>New Account</i>
+            </a>
+          </div>
         </div>
 
-        {/* info div second */}
-        <div className="bg-theme9-300 p-2 sm:p-4 md:p-6 rounded-lg shadow-lg flex-1 order-2">
-          <h2 className="text-base sm:text-lg md:text-2xl text-blue-700 text-left">
-            What is this and Why should one use this?
+        {/* Info Card */}
+        <div className="bg-theme2-400 p-6 rounded-2xl shadow-xl flex-1">
+          <h2 className="text-xl sm:text-2xl font-semibold text-cyan-300 border-b-2 border-cyan-400 pb-2">
+            What is this and Why should one use it?
           </h2>
-          <p className="text-left mt-2 text-xs sm:text-sm md:text-base text-theme3-400">
-            Students often feel overwhelmed and confused when trying to plan study time around
-            classes, homework, and personal activities. They lack a simple way to see their free
-            hours and organize them efficiently.
+          <p className="mt-3 text-sm sm:text-base text-gray-200 leading-relaxed">
+            Students often feel overwhelmed and confused when trying to plan
+            study time around classes, homework, and personal activities. They
+            lack a simple way to see their free hours and organize them
+            efficiently. This app provides a smart, automated schedule to bring
+            clarity, balance, and productivity.
           </p>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
+
 export default App;
