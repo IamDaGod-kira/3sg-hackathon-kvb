@@ -5,83 +5,73 @@ import vidyasetuLogo from './assets/vidyasetu-logo.png';
 
 function App() {
   return (
-    <div className="p-3 min-h-full min-w-fit flex flex-col justify-center items-center bg-purple-800 text-slate-800">
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-center gap-6 sm:gap-8 mb-6 w-full sm:w-auto">
-        <img
-          src={kvLogo}
-          alt="PM Shri K.V. Ballygunge"
-          className="h-20 sm:h-28 w-auto mx-auto sm:mx-0"
-        />
-        <div className="flex flex-col items-center">
-          <img src={bareIcon} alt="Bare Icon" className="h-20 sm:h-28 w-auto mb-2" />
-          <h2 className="text-2xl sm:text-3xl text-slate-200 font-bold text-center">
+    <div className="p-2 sm:p-3 min-h-screen w-full flex flex-col justify-start items-center bg-theme8 text-theme1-500">
+      <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-2 sm:gap-6 mb-3 w-full">
+        <img src={kvLogo} alt="PM Shri K.V. Ballygunge" className="h-10 sm:h-16 md:h-20 w-auto" />
+        <div className="flex flex-col items-center mx-1">
+          <img src={bareIcon} alt="Bare Icon" className="h-12 sm:h-20 md:h-28 w-auto" />
+          <h2 className="text-lg sm:text-2xl md:text-3xl text-theme1 font-bold text-center mt-1">
             Smart Study Schedule Generator
           </h2>
         </div>
-        <img
-          src={vidyasetuLogo}
-          alt="AI Vidyasetu"
-          className="h-20 sm:h-28 w-auto mx-auto sm:mx-0"
-        />
+        <img src={vidyasetuLogo} alt="AI Vidyasetu" className="h-10 sm:h-16 md:h-20 w-auto" />
       </div>
-      <p className="text-base sm:text-lg text-slate-100 italic mb-8 text-center">
+
+      <p className="text-xs sm:text-sm md:text-base lg:text-lg text-theme3-400 italic mb-4 text-center">
         A{' '}
-        <a className="italic border-b-2 border-fuchsia-400" href="https://www.vidyasetu.ai/">
+        <a className="italic border-b-2 border-theme6-600 hover:border-theme5-300" href="https://www.vidyasetu.ai/">
           Hackathon
         </a>{' '}
         project by{' '}
         <a
-          className="italic border-b-2 border-fuchsia-400"
+          className="italic border-b-2 border-theme6-600 hover:border-theme5-300"
           href="https://github.com/IamDaGod-kira/"
         >
           CodeCrafters
         </a>
       </p>
-      <div className="flex flex-col lg:flex-row justify-center items-start gap-6 lg:gap-8 w-full max-w-[100%]">
-        <div className="bg-slate-200 p-4 sm:p-8 rounded shadow text-center flex-1 max-w-full">
-          <h2 className="text-xl sm:text-2xl text-blue-800 text-left">
+
+      <div className="flex flex-col md:flex-row justify-center items-stretch gap-3 md:gap-6 w-full max-w-[1100px] px-1">
+        {/* login div first */}
+        <div className="bg-theme9-300 p-2 sm:p-4 md:p-6 rounded-lg shadow-lg flex-1 max-w-md self-center md:self-stretch order-1 md:order-none">
+          <h2 className="text-sm sm:text-base md:text-lg border-2 md:border-4 border-double border-theme7-600 rounded-lg p-1 md:p-2 mb-2 md:mb-4 text-theme1">
+            Login to the App
+          </h2>
+          <input
+            className="w-full mb-2 px-2 py-1 md:px-4 md:py-2 rounded bg-theme8-400 text-theme1-900 placeholder-theme5-400 focus:outline-none focus:ring-1 md:focus:ring-2 focus:ring-theme5-400 caret-theme5-500"
+            type="email"
+            placeholder="Enter your Email"
+          />
+          <input
+            className="w-full mb-2 px-2 py-1 md:px-4 md:py-2 rounded bg-theme8-400 text-theme1-900 placeholder-theme5-400 focus:outline-none focus:ring-1 md:focus:ring-2 focus:ring-theme5-400 caret-theme5-500"
+            type="password"
+            placeholder="Enter your Password"
+          />
+          <button
+            type="submit"
+            className="hover:text-emerald-500 mt-2 px-2 py-1 md:px-4 md:py-2 rounded text-theme9-100 bg-theme6-500 hover:bg-theme6-400"
+          >
+            Login ≫
+          </button>
+          <hr className="my-2 md:my-4 border-theme7-600" />
+          <a
+            className="text-blue-700 border-double border-b border-theme6-600 text-xs sm:text-sm md:text-base hover:text-theme1"
+            href=""
+          >
+            Create <i>New Account</i>
+          </a>
+        </div>
+
+        {/* info div second */}
+        <div className="bg-theme9-300 p-2 sm:p-4 md:p-6 rounded-lg shadow-lg flex-1 order-2">
+          <h2 className="text-base sm:text-lg md:text-2xl text-blue-700 text-left">
             What is this and Why should one use this?
           </h2>
-          <br />
-          <p className="text-left">
+          <p className="text-left mt-2 text-xs sm:text-sm md:text-base text-theme3-400">
             Students often feel overwhelmed and confused when trying to plan study time around
             classes, homework, and personal activities. They lack a simple way to see their free
             hours and organize them efficiently.
           </p>
-        </div>
-        <div className="bg-slate-200 p-4 sm:p-8 rounded shadow text-center flex-1 max-w-md">
-          <h2 className="text-lg sm:text-1.5xl border-4 border-double border-indigo-800 rounded-lg p-2 mb-4">
-            Login to the App
-          </h2>
-          <input
-            className="min-w-full mb-4 px-4 py-2 rounded bg-purple-100 text-purple-900 placeholder-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 caret-purple-700 hover:border-emerald-600 hover:border-2"
-            type="email"
-            name="email"
-            placeholder="Enter your Email"
-          />
-          <br />
-          <input
-            className="min-w-full px-4 py-2 rounded bg-purple-100 text-purple-900 placeholder-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 caret-purple-700 hover:border-emerald-600 hover:border-2"
-            type="password"
-            name="passwd"
-            placeholder="Enter your Password"
-          />
-          <br />
-          <br />
-          <button
-            type="submit"
-            className="text-slate-900 border-3px-indigo-800 hover:border-emerald-600"
-            style={{ backgroundColor: '#FFFDD0' }}
-          >
-            Login ≫
-          </button>
-          <br />
-          <br />
-          <hr />
-          <br />
-          <a className="text-blue-600 border-double border-b-2 border-fuchsia-700" href="">
-            Create <i>New Account</i>
-          </a>
         </div>
       </div>
     </div>
