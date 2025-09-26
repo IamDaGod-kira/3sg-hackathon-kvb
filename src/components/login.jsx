@@ -1,45 +1,81 @@
-import React from "react";
-import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import 'firebase/compat/auth';
+import firebase from 'firebase/compat/app';
+import Swal from 'sweetalert2';
 
-const [logged, setLogged] = React.useState(false);
-const auth = getAuth();
-const db = getFirestore();
+// ensure compat auth is loaded above
+// provider
+const provider = new firebase.auth.GoogleAuthProvider();
 
-function createAcc () {
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        // User is signed in.
-        const userDocRef = doc(db, 'users', user.uid); // Reference to the user's document using their UID
-    
-        // Prepare data to save/update.
-        // user.email comes from Firebase Auth.
-        // user.displayName might be available from Auth, or you might have a separate username field in Firestore.
-        // The schedule would be managed by your app. For a new user, it might be an empty array or default.
-        const userData = {
-          email: user.email,
-          username: user.displayName || 'New User', // Or prompt for a username if displayName isn't set
-          // You might also add a default schedule or an empty array for a new user
-          // For existing users, you'd fetch their existing schedule.
-          // For this example, let's assume we're just setting/updating core user info.
-          // If the schedule is app-generated, you'd have a separate function to generate and update it.
-          // For simplicity, let's say we only add 'schedule' if it doesn't exist or is empty.
-          schedule: [] // Initialize with an empty schedule for new users or if not present
-        };
-    
-        try {
-          // Use setDoc with { merge: true } to create the document if it doesn't exist,
-          // or update it without overwriting other fields (like an existing schedule)
-          // if it does exist.
-          await setDoc(userDocRef, userData, { merge: true });
-          console.log('User data saved/updated successfully in Firestore for UID:', user.uid);
-          // You can then proceed to fetch their schedule or generate a new one if it was just initialized.
-        } catch (error) {
-          console.error('Error saving user data to Firestore:', error);
-        }
-      } else {
-        // User is signed out.
-        console.log('No user signed in.');
-      }
+// helper to check initialization
+const isFirebaseInitialized = () => {
+  try {
+    return Array.isArray(firebase.apps) && firebase.apps.length > 0;
+  } catch (e) {
+    return false;
+  }
+};
+
+const funk = async () => {
+  if (!isFirebaseInitialized()) {
+    // clear, user-friendly instruction instead of crashing
+    Swal.fire({
+      icon: 'error',
+      title: 'Firebase not initialized',
+      html:
+        'Firebase is not initialized. Create a firebase init file (e.g. <code>src/firebase.js</code>) and call <code>firebase.initializeApp(config)</code>, then import it before using login.',
     });
+    console.error('Firebase not initialized. Call firebase.initializeApp(config) first.');
+    return;
+  }
+
+  try {
+    const current = firebase.auth().currentUser;
+    if (!current) {
+      const result = await firebase.auth().signInWithPopup(provider);
+      const user = result.user;
+      Swal.fire(`User Logged in: ${user.displayName || user.email}`);
+    } else {
+      Swal.fire({ title: 'User already signed in' });
+    }
+  } catch (err) {
+    console.error('Login error', err);
+    Swal.fire({ icon: 'error', title: 'Login error', text: err.message || String(err) });
+  }
+};
+
+export default function Login() {
+  return (
+    <div className="bg-theme2-400 p-6 rounded-2xl shadow-xl flex-1 max-w-md self-center md:self-stretch">
+      <h2 className="text-lg sm:text-xl font-semibold border-b-2 border-indigo-500 pb-2 mb-4 text-white">
+        Login to the App
+      </h2>
+      <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+        <input
+          className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 caret-indigo-400"
+          type="email"
+          placeholder="Enter your Email"
+        />
+        <input
+          className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 caret-indigo-400"
+          type="password"
+          placeholder="Enter your Password"
+        />
+        <button
+          type="button"
+          onClick={funk}
+          className="mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors"
+        >
+          Login ≫
+        </button>
+      </form>
+      <div className="mt-4 text-center">
+        <a
+          className="text-sm text-cyan-300 hover:text-cyan-200 border-b border-cyan-400 transition-colors"
+          href="#"
+        >
+          Create <i>New Account</i>
+        </a>
+      </div>
+    </div>
+  );
 }
