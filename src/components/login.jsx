@@ -1,49 +1,35 @@
-import 'firebase/compat/auth';
-import firebase from 'firebase/compat/app';
-import Swal from 'sweetalert2';
-
-// ensure compat auth is loaded above
-// provider
-const provider = new firebase.auth.GoogleAuthProvider();
-
-// helper to check initialization
-const isFirebaseInitialized = () => {
-  try {
-    return Array.isArray(firebase.apps) && firebase.apps.length > 0;
-  } catch (e) {
-    return false;
-  }
-};
-
-const funk = async () => {
-  if (!isFirebaseInitialized()) {
-    // clear, user-friendly instruction instead of crashing
-    Swal.fire({
-      icon: 'error',
-      title: 'Firebase not initialized',
-      html:
-        'Firebase is not initialized. Create a firebase init file (e.g. <code>src/firebase.js</code>) and call <code>firebase.initializeApp(config)</code>, then import it before using login.',
-    });
-    console.error('Firebase not initialized. Call firebase.initializeApp(config) first.');
-    return;
-  }
-
-  try {
-    const current = firebase.auth().currentUser;
-    if (!current) {
-      const result = await firebase.auth().signInWithPopup(provider);
-      const user = result.user;
-      Swal.fire(`User Logged in: ${user.displayName || user.email}`);
-    } else {
-      Swal.fire({ title: 'User already signed in' });
-    }
-  } catch (err) {
-    console.error('Login error', err);
-    Swal.fire({ icon: 'error', title: 'Login error', text: err.message || String(err) });
-  }
-};
+import { useState } from "react";
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import Swal from "sweetalert2";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+
+  const handleEmailLogin = async () => {
+    try {
+      const userCred = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCred.user;
+      Swal.fire(`User Logged in: ${user.displayName || user.email}`);
+    } catch (err) {
+      console.error("Login error", err);
+      Swal.fire({ icon: "error", title: "Login error", text: err.message || String(err) });
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      Swal.fire(`User Logged in: ${user.displayName || user.email}`);
+    } catch (err) {
+      console.error("Google login error", err);
+      Swal.fire({ icon: "error", title: "Login error", text: err.message || String(err) });
+    }
+  };
+
   return (
     <div className="bg-theme2-400 p-6 rounded-2xl shadow-xl flex-1 max-w-md self-center md:self-stretch">
       <h2 className="text-lg sm:text-xl font-semibold border-b-2 border-indigo-500 pb-2 mb-4 text-white">
@@ -54,18 +40,29 @@ export default function Login() {
           className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 caret-indigo-400"
           type="email"
           placeholder="Enter your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 caret-indigo-400"
           type="password"
           placeholder="Enter your Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button
           type="button"
-          onClick={funk}
+          onClick={handleEmailLogin}
           className="mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors"
         >
-          Login ≫
+          Login with Email ≫
+        </button>
+        <button
+          type="button"
+          onClick={handleGoogleLogin}
+          className="mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors"
+        >
+          Login with Google ≫
         </button>
       </form>
       <div className="mt-4 text-center">
