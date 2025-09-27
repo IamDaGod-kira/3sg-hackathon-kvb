@@ -96,7 +96,7 @@ export default function Login() {
           <div className="mt-4 text-center">
             <a
               className="text-sm text-cyan-300 hover:text-cyan-200 border-b border-cyan-400 transition-colors"
-              href="#"
+              href="/signup"
             >
               Create <i>New Account</i>
             </a>
