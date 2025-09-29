@@ -59,10 +59,13 @@ export default function Login() {
     <div className="bg-theme2-400 p-6 rounded-2xl shadow-xl flex-1 max-w-md self-center md:self-stretch">
       {!user ? (
         <>
-          <h2 className="text-lg sm:text-xl font-semibold border-b-2 border-indigo-500 pb-2 mb-4 text-white">
+          <h2 className="font-header1 var-header1 text-lg sm:text-xl font-semibold border-b-2 border-indigo-500 pb-2 mb-4 text-white">
             Login to the App
           </h2>
-          <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+          <form
+            className="font-text1 var-text1 flex flex-col gap-3"
+            onSubmit={(e) => e.preventDefault()}
+          >
             <input
               className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 caret-indigo-400"
               type="email"
@@ -80,14 +83,14 @@ export default function Login() {
             <button
               type="button"
               onClick={handleEmailLogin}
-              className="mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors"
+              className="font-text1 var-text1 mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors"
             >
               Login with Email ≫
             </button>
             <button
               type="button"
               onClick={handleGoogleLogin}
-              className="mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors flex items-center justify-center gap-2"
+              className="font-text1 var-text1 mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors flex items-center justify-center gap-2"
             >
               <GoogleIcon />
               Login with Google
@@ -98,7 +101,7 @@ export default function Login() {
               className="text-sm text-cyan-300 hover:text-cyan-200 border-b border-cyan-400 transition-colors"
               href="/signup"
             >
-              Create <i>New Account</i>
+              Create <i className="font-header1 var-header1">New Account</i>
             </a>
           </div>
         </>

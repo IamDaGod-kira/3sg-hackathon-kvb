@@ -62,10 +62,10 @@ function Home() {
 
         {/* Info Card */}
         <div className="bg-theme2-400 p-6 rounded-2xl shadow-xl flex-1">
-          <h2 className="text-xl sm:text-2xl font-semibold text-cyan-300 border-b-2 border-cyan-400 pb-2">
+          <h2 className="font-header1 var-header1 text-xl sm:text-2xl font-semibold text-cyan-300 border-b-2 border-cyan-400 pb-2">
             What is this and Why should one use it?
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-gray-200 leading-relaxed">
+          <p className="font-text1 var-text1 mt-3 text-sm sm:text-base text-gray-200 leading-relaxed">
             Students often feel overwhelmed and confused when trying to plan study time around
             classes, homework, and personal activities. They lack a simple way to see their free
             hours and organize them efficiently. This app provides a smart, automated schedule to

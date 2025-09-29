@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Playwrite+DE+Grund:wght@100..400&display=swap');
 @import 'tailwindcss';
 
 #root {
@@ -63,4 +64,22 @@
   --color-theme5-700: #f7f1ee;
   --color-theme5-800: #faf6f4;
   --color-theme5-900: #fcfaf9;
+
+  --font-header1: 'Climate Crisis', sans-serif;
+  --font-text1: 'Playwrite DE Grund', cursive;
+}
+
+.var-header1 {
+  font-family: var(--font-header1);
+  font-optical-sizing: auto;
+  font-weight: auto;
+  font-style: normal;
+  font-variation-settings: 'YEAR' 1979;
+}
+
+.var-text1 {
+  font-family: var(--font-text1);
+  font-optical-sizing: auto;
+  font-weight: auto;
+  font-style: normal;
 }

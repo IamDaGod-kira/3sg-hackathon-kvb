@@ -39,11 +39,11 @@ export default function CreateAcc() {
   return (
     <div className="w-full min-h-screen flex justify-center items-center px-6 sm:px-8 md:px-12 py-12 bg-theme1-400">
       <div className="w-full max-w-2xl bg-theme2-400 rounded-2xl shadow-2xl p-8 sm:p-10 md:p-12">
-        <h2 className="text-2xl sm:text-3xl font-bold border-b-2 border-indigo-500 pb-3 mb-6 text-white text-center">
+        <h2 className="font-header1 var-header1 text-2xl sm:text-3xl font-bold border-b-2 border-indigo-500 pb-3 mb-6 text-white text-center">
           Create Account
         </h2>
 
-        <form onSubmit={handleSignup} className="flex flex-col gap-5">
+        <form onSubmit={handleSignup} className="font-text1 var-text1 flex flex-col gap-5">
           <input
             className="w-full px-5 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 caret-indigo-400"
             type="text"
