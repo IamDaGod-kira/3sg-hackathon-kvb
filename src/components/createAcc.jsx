@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { db } from '../main'; // adjust path if needed
+import { collection, doc, setDoc } from 'firebase/firestore';
 
 export default function CreateAcc() {
   const [email, setEmail] = useState('');
@@ -17,6 +19,17 @@ export default function CreateAcc() {
       if (name) {
         await updateProfile(userCred.user, { displayName: name });
       }
+
+      // generate Firestore auto ID
+      const newDocRef = doc(collection(db, 'userAccounts'));
+      const autoId = newDocRef.id;
+
+      await setDoc(newDocRef, {
+        username: name,
+        email: email,
+        schedule: [],
+        api: autoId, // storing the same auto ID as "api"
+      });
 
       Swal.fire({
         title: 'Success!',

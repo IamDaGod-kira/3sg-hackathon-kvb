@@ -8,7 +8,6 @@ import {
   signOut,
 } from 'firebase/auth';
 import Swal from 'sweetalert2';
-import GoogleIcon from '@mui/icons-material/Google';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -31,16 +30,6 @@ export default function Login() {
       Swal.fire(`User Logged in: ${userCred.user.displayName || userCred.user.email}`);
     } catch (err) {
       console.error('Login error', err);
-      Swal.fire({ icon: 'error', title: 'Login error', text: err.message || String(err) });
-    }
-  };
-
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      Swal.fire(`User Logged in: ${result.user.displayName || result.user.email}`);
-    } catch (err) {
-      console.error('Google login error', err);
       Swal.fire({ icon: 'error', title: 'Login error', text: err.message || String(err) });
     }
   };
@@ -86,14 +75,6 @@ export default function Login() {
               className="font-text1 var-text1 mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors"
             >
               Login with Email ≫
-            </button>
-            <button
-              type="button"
-              onClick={handleGoogleLogin}
-              className="font-text1 var-text1 mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors flex items-center justify-center gap-2"
-            >
-              <GoogleIcon />
-              Login with Google
             </button>
           </form>
           <div className="mt-4 text-center">

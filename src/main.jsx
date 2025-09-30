@@ -5,6 +5,7 @@ import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { AuthProvider } from './components/protected/AuthContext'; // updated path
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDBCfVSpAw4jkx1h5D6f_HZoUCsNoOEbRc',
@@ -17,6 +18,7 @@ const firebaseConfig = {
 };
 
 initializeApp(firebaseConfig);
+export const db = getFirestore();
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
