@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
-
 import { initializeApp } from 'firebase/app';
+import { AuthProvider } from './components/protected/AuthContext'; // updated path
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDBCfVSpAw4jkx1h5D6f_HZoUCsNoOEbRc',
@@ -16,12 +16,14 @@ const firebaseConfig = {
   measurementId: 'G-JC4P0H0RZB',
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </StrictMode>,
 );
