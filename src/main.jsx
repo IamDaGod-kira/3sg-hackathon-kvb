@@ -8,13 +8,13 @@ import { AuthProvider } from './components/protected/AuthContext'; // updated pa
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDBCfVSpAw4jkx1h5D6f_HZoUCsNoOEbRc',
-  authDomain: 'kvb-3sg-2025.firebaseapp.com',
-  projectId: 'kvb-3sg-2025',
-  storageBucket: 'kvb-3sg-2025.firebasestorage.app',
-  messagingSenderId: '335740100338',
-  appId: '1:335740100338:web:376074b7589dbc0b1e3a6b',
-  measurementId: 'G-JC4P0H0RZB',
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
+  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 };
 
 initializeApp(firebaseConfig);
