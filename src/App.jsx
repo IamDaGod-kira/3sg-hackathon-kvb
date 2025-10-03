@@ -60,8 +60,10 @@ function Home() {
             What is this and Why should one use it?
           </h2>
           <p className="font-text1 var-text1 mt-3 text-sm sm:text-base text-gray-200 leading-relaxed">
-            Students often feel overwhelmed and confused when trying to plan study time...
+            Navigating through life’s daily demands can be overwhelming. From balancing studies, personal interests, to essential life chores – it’s a lot to juggle. That’s where the concept of a daily schedule comes in. It’s a powerful tool that helps you structure your time, prioritize tasks, and reduce stress.
           </p>
+          <br />
+          <p className='font-text1 var-text1 mt-3 text-sm sm:text-base text-gray-200 leading-relaxed'>In the era of digital transformation, we’re witnessing the rise of a new breed of tools that can assist in this process. Among these is our AI-powered daily schedule generator. It’s not just about jotting down tasks – it’s about smartly organizing them to optimize productivity and wellbeing</p>
           <div className="mt-4">
             <Link to="/signup" className="text-sm text-blue-300 hover:text-blue-200 underline">
               Don’t have an account? Sign up here.

@@ -109,7 +109,7 @@ export default function Login() {
               href="/dashboard"
               className="mt-2 px-4 py-2 rounded-lg font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-400 hover:to-purple-500 transition-colors text-center"
             >
-              Go to 3sg Dashboard
+              <p className="text-white">Go to 3sg Dashboard</p>
             </a>
           </div>
         </>

@@ -4,7 +4,7 @@ import React from 'react';
 export default function LoadingScreen({
   message = 'Loading',
   fullscreen = true,
-  accent = 'from-indigo-500 to-purple-600', // pass different gradient classes if you want
+  accent = 'from-theme1-200 to-theme2-600', // pass different gradient classes if you want
 }) {
   return (
     <div
